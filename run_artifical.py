@@ -10,15 +10,15 @@ from scipy.sparse import csgraph
 import scipy
 import os 
 from sklearn import datasets
-os.chdir('C:/DATA/Kaige_Research/Code/graph_bandit/graphucb_code/')
+# os.chdir('C:/DATA/Kaige_Research/Code/graph_bandit/graphucb_code/')
 from linucb import LINUCB
 from gob import GOB 
 from lapucb import LAPUCB
 from lapucb_sim import LAPUCB_SIM
 from club import CLUB
 from utils import *
-path='../bandit_results/simulated/'
-save_path='../bandit_results/camera_ready_results/'
+# path='../bandit_results/simulated/'
+# save_path='../bandit_results/camera_ready_results/'
 #np.random.seed(2018)
 
 
@@ -41,19 +41,19 @@ user_seq=np.random.choice(range(user_num), size=iteration)
 item_pool_seq=np.random.choice(range(item_num), size=(iteration, pool_size))
 item_feature_matrix=Normalizer().fit_transform(np.random.normal(size=(item_num, dimension)))
 
-#er_adj=ER_graph(user_num, 0.4)
+er_adj=ER_graph(user_num, 0.4)
 #np.save(path+'er_binary_graph.npy', er_adj)
-er_adj=np.load(path+'er_binary_graph.npy')
+# er_adj=np.load(path+'er_binary_graph.npy')
 
 
-#ba_adj=BA_graph(user_num, 5)
+ba_adj=BA_graph(user_num, 5)
 #np.save(path+'ba_binary_graph.npy', ba_adj)
-ba_adj=np.load(path+'ba_binary_graph.npy')
+# ba_adj=np.load(path+'ba_binary_graph.npy')
 
 
-#ws_adj=WS_graph(user_num, 8, 0.2)
+ws_adj=WS_graph(user_num, 8, 0.2)
 #np.save(path+'ws_binary_graph.npy', ws_adj)
-ws_adj=np.load(path+'ws_binary_graph.npy')
+# ws_adj=np.load(path+'ws_binary_graph.npy')
 
 random_matrix=np.random.normal(size=(user_num, dimension))
 rbf_adj=rbf_kernel(random_matrix, gamma=0.05)
